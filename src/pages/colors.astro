@@ -1,0 +1,54 @@
+---
+import Column from "@components/column.astro"
+import Row from "@components/row.astro"
+import Layout from "src/layouts/Layout.astro"
+
+const tints = [
+    "50",
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+    "950",
+]
+
+const colors = ["gray", "neutral", "red", "green", "orange", "blue"]
+---
+
+<Layout title="Colors">
+    <Column>
+        {
+            colors.map((color) => {
+                return (
+                    <Row>
+                        {tints.map((tint) => {
+                            return (
+                                <div
+                                    class="swatch"
+                                    style={`background-color: var(--color-${color}-${tint})`}
+                                />
+                            )
+                        })}
+                    </Row>
+                )
+            })
+        }
+    </Column>
+</Layout>
+
+<style>
+    .swatch {
+        width: 3rem;
+        height: 3rem;
+        background-color: blue;
+        border-radius: var(--radius-sm);
+        border-color: var(--color-gray-300);
+        border-width: 1px;
+        border-style: solid;
+    }
+</style>

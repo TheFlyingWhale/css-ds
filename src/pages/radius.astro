@@ -1,0 +1,31 @@
+---
+import type { Radius } from "@styles/lars/types"
+import Column from "@components/column.astro"
+import Layout from "src/layouts/Layout.astro"
+
+const radiuses: Radius[] = ["xs", "sm", "md", "lg", "xl", "full"]
+---
+
+<Layout title="Radius">
+    <Column gap="md">
+        {
+            radiuses.map((radius) => {
+                return (
+                    <div
+                        class="box"
+                        style={`border-radius: var(--radius-${radius})`}
+                    />
+                )
+            })
+        }
+    </Column>
+</Layout>
+
+<style>
+    .box {
+        background-color: var(--color-red-500);
+        outline: 2px solid var(--color-red-600);
+        width: 5rem;
+        height: 5rem;
+    }
+</style>

@@ -1,0 +1,58 @@
+---
+import Column from "@components/column.astro"
+import Row from "@components/row.astro"
+import type { Space } from "@styles/lars/types"
+import Layout from "src/layouts/Layout.astro"
+
+let spacings: Space[] = [
+    "2xs",
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "2xl",
+    "3xl",
+    "4xl",
+    "5xl",
+]
+---
+
+<Layout title="Spacing">
+    <Column gap="md">
+        {
+            spacings.map((spacing) => {
+                return (
+                    <Row
+                        gap="none"
+                        vertical="center"
+                    >
+                        <div class="box" />
+                        <div
+                            class="space-display"
+                            style={`width: var(--space-${spacing});`}
+                        />
+                        <div class="box" />
+                    </Row>
+                )
+            })
+        }
+    </Column>
+</Layout>
+
+<style>
+    .box {
+        background-color: var(--color-gray-200);
+        border-radius: var(--radius-sm);
+        height: 5rem;
+        width: 5rem;
+    }
+    .space-display {
+        background-color: var(--color-red-500);
+        outline: 2px solid var(--color-red-600);
+        outline-offset: -2px;
+        border-radius: var(--radius-sm);
+        height: 5rem;
+        z-index: 100;
+    }
+</style>
