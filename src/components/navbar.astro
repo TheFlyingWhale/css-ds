@@ -1,0 +1,60 @@
+---
+import Column from "./column.astro"
+
+interface Link {
+    href: string
+    name: string
+}
+
+const links: Link[] = [
+    {
+        href: ".",
+        name: "Home",
+    },
+    {
+        href: "typography",
+        name: "Typography",
+    },
+    {
+        href: "colors",
+        name: "Colors",
+    },
+    {
+        href: "spacing",
+        name: "Spacing",
+    },
+    {
+        href: "radius",
+        name: "Radius",
+    },
+    {
+        href: "radius",
+        name: "Radius",
+    },
+    {
+        href: "shadow",
+        name: "Shadow",
+    },
+]
+---
+
+<nav>
+    <Column>
+        {
+            links.map(({ href, name }) => {
+                return <a href={href}>{name}</a>
+            })
+        }
+    </Column>
+</nav>
+
+<style>
+    nav {
+        font-family: var(--font-family-text);
+        padding: var(--space-md);
+    }
+
+    a:hover {
+        color: var(--color-blue-600);
+    }
+</style>

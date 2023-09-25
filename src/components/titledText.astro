@@ -1,0 +1,18 @@
+---
+import Vertical from "./column.astro"
+interface Props {
+    title?: string
+    subtitle?: string
+    text?: string
+}
+
+const { title, subtitle, text } = Astro.props
+---
+
+<Vertical gap="none">
+    {title ? <h1 class="subtitle-xl">{title}</h1> : undefined}
+    {subtitle ? <h2 class="subtitle-md">{subtitle}</h2> : undefined}
+    {text ? <p class="text-md">{text}</p> : undefined}
+</Vertical>
+
+<style></style>

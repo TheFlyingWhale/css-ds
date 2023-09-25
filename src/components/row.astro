@@ -1,0 +1,24 @@
+---
+import type { Space } from "@styles/lars/types"
+import type * as CSS from "csstype"
+interface Props {
+    gap?: Space
+    horizontal?: CSS.Properties["justifyContent"]
+    vertical?: CSS.Properties["alignItems"]
+}
+
+const { gap = "sm", horizontal = "", vertical = "" } = Astro.props
+---
+
+<div class="horizontal">
+    <slot />
+</div>
+
+<style define:vars={{ gap: `var(--space-${gap})`, horizontal, vertical }}>
+    .horizontal {
+        display: flex;
+        gap: var(--gap);
+        justify-content: var(--horizontal);
+        align-items: var(--vertical);
+    }
+</style>

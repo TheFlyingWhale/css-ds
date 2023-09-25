@@ -1,0 +1,19 @@
+@import "./lars/lars.css";
+
+:root {
+    --color-brand-primary-red: #b72026;
+    --color-brand-primary-light-gray: #f2f2f2;
+    --color-brand-primary-gray: #626262;
+    --color-brand-primary-dark-gray: #464646;
+
+    --color-brand-secondary-blue: #003a50;
+    --color-brand-secondary-teal: #075e66;
+    --color-brand-green: #a7beb2;
+    --color-brand-yellow: #f3e9d5;
+    --color-brand-pink: #dcb1b1;
+}
+
+body {
+    color: var(--color-gray-700);
+    font-family: var(--font-family-text);
+}

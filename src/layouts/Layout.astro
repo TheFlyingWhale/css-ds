@@ -1,24 +1,68 @@
 ---
-import "@styles/lars-ds.css"
+import Column from "@components/column.astro"
+import Navbar from "@components/navbar.astro"
+import "@styles/global.css"
 
 interface Props {
-	title: string;
+    title?: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="Astro description"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width"
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon.svg"
+        />
+        <meta
+            name="generator"
+            content={Astro.generator}
+        />
+        <title>{title ? title : "Lars"}</title>
+    </head>
+    <body>
+        <div class="container">
+            <Navbar />
+            <main>
+                <Column gap="lg">
+                    {title ? <h1 class="subtitle-xxl">{title}</h1> : undefined}
+                    <slot />
+                </Column>
+            </main>
+        </div>
+    </body>
 </html>
+
+<style>
+    .container {
+        width: 100%;
+        max-width: 80rem;
+        display: flex;
+        gap: var(--space-xl);
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: var(--space-xl) var(--space-xl);
+        background-color: var(--color-gray-100);
+    }
+
+    main {
+        width: 100%;
+    }
+</style>
